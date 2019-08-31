@@ -1,0 +1,24 @@
+@import '../../utils/constants';
+
+.header-container {
+  background: #493ceb;
+  height: $headerHeight;
+  .header-itens {
+    justify-content: center;
+    align-items: center;
+
+    i {
+      float: right;
+    }
+
+    label {
+      font-size: 2.5rem;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .select {
+      width: 20rem;
+    }
+  }
+}
