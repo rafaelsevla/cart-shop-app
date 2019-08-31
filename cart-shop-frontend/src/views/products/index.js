@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from 'components/header';
 
-const Main = ({ answer }) => (
+const Products = ({ answer }) => (
   <>
     <Header />
     <h1>{answer}</h1>
@@ -10,7 +10,7 @@ const Main = ({ answer }) => (
 );
 
 const mapStateToProps = state => ({
-  answer: state.main.answer
+  answer: state.products.answer
 });
 
 const mapDispatchToProps = {};
@@ -18,4 +18,4 @@ const mapDispatchToProps = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Main);
+)(Products);
