@@ -1,4 +1,6 @@
-export const CONSTANTS = {
-  API: 'http://localhost:3001/api/',
+const CONSTANTS = {
+  API: 'https://b9e1d4ba.ngrok.io/api/',
   PRODUCTS: 'products/'
 };
+
+export default CONSTANTS;

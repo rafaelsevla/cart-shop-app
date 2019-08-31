@@ -35,7 +35,7 @@ class Header extends React.Component {
             placeholder="Search"
           />
           <div>
-            <AntDesign name="shoppingcart" color="#000" size={40} />
+            <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
             <span class="badge badge-pill badge-danger badge-custom">10</span>
           </div>
         </Row>

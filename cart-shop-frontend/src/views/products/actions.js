@@ -11,7 +11,7 @@ const fetchProductsSuccess = data => ({
   payload: data
 });
 
-export const fetchProducts = data => dispatch => {
+export const fetchProducts = () => dispatch => {
   dispatch({
     type: types.FETCH_PRODUCTS
   });
@@ -22,7 +22,6 @@ export const fetchProducts = data => dispatch => {
       dispatch(fetchProductsSuccess(response.data));
     })
     .catch(() => {
-      toast.error('Falha ao cadastrar. Tente novamente mais tarde.');
       dispatch(fetchProductsFail());
     });
 };
