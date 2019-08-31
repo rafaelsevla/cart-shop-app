@@ -10,17 +10,18 @@ export const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_PRODUCTS_TO_CART:
-      const id = action.payload;
-      let cartItens = [...state.cartItens];
-      let cartItem = cartItens.find(item => item.id === id);
+      let newCartItem = state.itens.find(
+        product => product.id === action.payload
+      );
+      newCartItem.amount = 1;
 
-      if (cartItem) {
-        cartItem.amount++;
-      } else {
-        let newCartItem = state.itens.find(product => product.id === id);
-        newCartItem.amount = 1;
-        cartItens = [...state.cartItens, newCartItem];
-      }
+      return { ...state, cartItens: [...state.cartItens, newCartItem] };
+
+    case types.INCREASE_PRODUCTS_TO_CART:
+      let cartItens = [...state.cartItens];
+      let cartItem = cartItens.find(item => item.id === action.payload);
+      cartItem.amount++;
+
       return { ...state, cartItens };
 
     case types.FETCH_PRODUCTS:
