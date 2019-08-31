@@ -36,7 +36,7 @@ class Products extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
+    !localStorage.getItem('fetchProducts') && this.props.fetchProducts();
   }
 
   modal = () => {

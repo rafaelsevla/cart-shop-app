@@ -11,10 +11,13 @@ const fetchProductsFail = () => ({
   type: types.FETCH_PRODUCTS_FAIL
 });
 
-const fetchProductsSuccess = data => ({
-  type: types.FETCH_PRODUCTS_SUCCESS,
-  payload: data
-});
+const fetchProductsSuccess = data => dispatch => {
+  localStorage.setItem('fetchProducts', true);
+  dispatch({
+    type: types.FETCH_PRODUCTS_SUCCESS,
+    payload: data
+  });
+};
 
 export const fetchProducts = () => dispatch => {
   dispatch({
