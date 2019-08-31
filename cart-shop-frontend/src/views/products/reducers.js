@@ -3,7 +3,8 @@ import { ActionTypes as types } from './constants';
 export const initialState = {
   cartItens: [],
   itens: [],
-  isFreeShipping: false
+  showErrorMessage: false,
+  isFetchingProducts: false
 };
 
 export default (state = initialState, action) => {
@@ -36,7 +37,7 @@ export default (state = initialState, action) => {
     case types.FETCH_PRODUCTS_SUCCESS:
       return {
         ...state,
-        itens: [...action.payload.products],
+        itens: action.payload.products,
         isFetchingProducts: false
       };
 
