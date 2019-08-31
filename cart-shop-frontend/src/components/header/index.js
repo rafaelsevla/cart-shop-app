@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Row, Label } from 'reactstrap';
 import { AntDesign } from 'react-web-vector-icons';
+import { connect } from 'react-redux';
 import Select from 'react-select';
 
 import './style.scss';
@@ -11,7 +12,7 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' }
 ];
 
-class Header extends React.Component {
+class Header extends Component {
   state = {
     selectedOption: null
   };
@@ -22,6 +23,7 @@ class Header extends React.Component {
 
   render() {
     const { selectedOption } = this.state;
+    const { products } = this.props;
     return (
       <Col md={12} className="header-container">
         <Row className="header-itens">
@@ -36,7 +38,9 @@ class Header extends React.Component {
           />
           <div>
             <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
-            <span class="badge badge-pill badge-danger badge-custom">10</span>
+            <span class="badge badge-pill badge-danger badge-custom">
+              {products.cartItens.length}
+            </span>
           </div>
         </Row>
       </Col>
@@ -44,4 +48,8 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  products: state.products
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from 'components/header';
-import { Button } from 'reactstrap';
-import { fetchProducts } from './actions';
+import {
+  Badge,
+  Button,
+  Row,
+  Card,
+  CardImg,
+  CardHeader,
+  CardFooter,
+  CardBody,
+  CardTitle,
+  CardText
+} from 'reactstrap';
+import { addProductToCart, fetchProducts } from './actions';
 import './style.scss';
 
 class Products extends Component {
@@ -12,22 +23,55 @@ class Products extends Component {
 
   render() {
     const { products } = this.props;
-
+    console.log(this.props);
     return (
       <>
         <Header />
         <div className="product-list">
           {products.itens.map(product => (
-            <article key={product.id}>
-              <strong>{product.title}</strong>
-              <p>{product.description}</p>
-              <p>{product.availableSizes}</p>
-              <p>{product.style}</p>
-              <p>{product.price}</p>
-              <p>{product.installments}</p>
-              <p>{product.isFreeShipping && 'Frete grátis'}</p>
-              <Button onClick={() => {}}>Colocar no carrinho </Button>
-            </article>
+            <>
+              <Card key={product.id} className="mb-5">
+                <CardHeader>
+                  <strong>{product.title}</strong>
+                </CardHeader>
+                <CardBody>
+                  <CardTitle>
+                    {product.description}
+                    &nbsp; &nbsp;
+                    {product.availableSizes.map(size => `${size} |`)}
+                  </CardTitle>
+                  <CardText>
+                    <p>{product.style}</p>
+                    <p>{product.price}</p>
+                    <p>{product.installments}</p>
+                  </CardText>
+                </CardBody>
+                <CardFooter>
+                  <Row>
+                    {product.isFreeShipping && (
+                      <Badge
+                        style={{
+                          alignItems: 'center',
+                          display: 'flex',
+                          height: 30
+                        }}
+                        color="success"
+                        pill
+                      >
+                        Frete grátis
+                      </Badge>
+                    )}
+
+                    <Button
+                      className="button-put-cart"
+                      onClick={() => this.props.addProductToCart(product.id)}
+                    >
+                      Colocar no carrinho
+                    </Button>
+                  </Row>
+                </CardFooter>
+              </Card>
+            </>
           ))}
         </div>
       </>
@@ -40,6 +84,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
+  addProductToCart,
   fetchProducts
 };
 

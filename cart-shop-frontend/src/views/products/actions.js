@@ -2,6 +2,11 @@ import { ActionTypes as types } from './constants';
 import CONSTANTS from 'utils/endpoints';
 import axios from 'axios';
 
+export const addProductToCart = product_id => ({
+  type: types.ADD_PRODUCTS_TO_CART,
+  payload: product_id
+});
+
 const fetchProductsFail = () => ({
   type: types.FETCH_PRODUCTS_FAIL
 });
