@@ -24,6 +24,7 @@ class Header extends Component {
   render() {
     const { selectedOption } = this.state;
     const { products } = this.props;
+
     return (
       <Col md={12} className="header-container">
         <Row className="header-itens">
@@ -36,7 +37,7 @@ class Header extends Component {
             options={options}
             placeholder="Search"
           />
-          <div>
+          <div onClick={this.props.onClick}>
             <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
             <span class="badge badge-pill badge-danger badge-custom">
               {products.cartItens.length}
