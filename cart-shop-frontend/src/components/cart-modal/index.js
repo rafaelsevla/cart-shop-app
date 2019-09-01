@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import {
   Badge,
   Button,
@@ -9,12 +8,19 @@ import {
   CardHeader,
   CardText,
   CardTitle,
+  Col,
   Modal,
   ModalBody,
   ModalHeader,
   ModalFooter,
   Row
 } from 'reactstrap';
+import {
+  AntDesign,
+  EvilIcons,
+  MaterialCommunityIcons
+} from 'react-web-vector-icons';
+import './style.scss';
 
 const CartModal = ({
   products,
@@ -31,48 +37,64 @@ const CartModal = ({
             <>
               <Card key={product.id} className="mb-5">
                 <CardHeader>
-                  <strong>
-                    {product.title} ({product.description})
-                  </strong>
+                  <Row>
+                    <Col md={10}>
+                      <strong>
+                        {product.title}
+                        <br />
+                        {product.description && `(${product.description})`}
+                      </strong>
+                    </Col>
+
+                    <Col
+                      md={2}
+                      className="remove-item-container"
+                      onClick={() => removeProductToCart(product.id)}
+                    >
+                      <EvilIcons name="trash" size={30} color="#000" />
+                    </Col>
+                  </Row>
                 </CardHeader>
                 <CardBody>
-                  <CardTitle>
-                    {product.availableSizes.map(size => `${size} |`)}
-                  </CardTitle>
+                  <CardTitle></CardTitle>
                   <CardText>
-                    tamanho<p>{product.style}</p>
-                    preco <p>{product.price}</p>
-                    parcelas <p>{product.installments}</p>
-                    total <p>{product.amount}</p>
-                    {product.isFreeShipping && (
-                      <Badge
-                        style={{
-                          alignItems: 'center',
-                          display: 'flex',
-                          height: 30
-                        }}
-                        color="success"
-                        pill
-                      >
-                        Frete grátis
-                      </Badge>
-                    )}
+                    <Row>
+                      <Col md={6}>
+                        {product.style && (
+                          <>
+                            <h3>Cor</h3>
+                            <p>{product.style}</p>
+                          </>
+                        )}
+                        preco <p>{product.price}</p>
+                        {product.isFreeShipping && (
+                          <div className="d-flex align-items-center free-shipping">
+                            <MaterialCommunityIcons
+                              name="truck-fast"
+                              color="green"
+                              size={40}
+                            />
+                            &nbsp; Entrega grátis
+                          </div>
+                        )}
+                      </Col>
+                      <Col md={6}>
+                        <img
+                          src="https://www.verdebrancomania.com.br/imagens/produtos/08601878/Detalhes/camisa-i-palmeiras-2019-patrociniospatchbr.jpg"
+                          width="180px"
+                        />
+                      </Col>
+                    </Row>
                   </CardText>
                 </CardBody>
                 <CardFooter>
                   <Row>
-                    <Button
-                      className="button-put-cart mr-5"
-                      onClick={() => removeProductToCart(product.id)}
-                    >
-                      remover do carrinho
-                    </Button>
-                    <Button
-                      className="button-put-cart"
-                      onClick={() => addProductToCart(product.id)}
-                    >
-                      adicionar mais 1
-                    </Button>
+                    <Col onClick={() => addProductToCart(product.id)}>
+                      <h3>
+                        Quantidade: {product.amount}
+                        <AntDesign name="pluscircleo" color="black" size={40} />
+                      </h3>
+                    </Col>
                   </Row>
                 </CardFooter>
               </Card>

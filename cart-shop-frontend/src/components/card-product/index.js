@@ -61,7 +61,7 @@ const CardProduct = ({ product, addProductToCart }) => (
       </CardText>
     </CardBody>
     <CardFooter>
-      <Row className="justify-content-around align-items-center">
+      <Row className="justify-content-around align-items-center free-shipping">
         {product.isFreeShipping && (
           <div className="d-flex align-items-center">
             <MaterialCommunityIcons name="truck-fast" color="green" size={40} />
