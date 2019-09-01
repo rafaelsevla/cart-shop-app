@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from 'components/header';
-import CartModal from 'components/modal-cart';
-import CardProduct from 'components/card-product';
+import { CardProduct, CartModal, Header } from 'components';
 
 import {
   addProductToCart,
@@ -13,13 +11,13 @@ import './style.scss';
 
 class Products extends Component {
   state = {
-    modalOpen: false
+    modalOpen: true
   };
 
   toggle = () => {
-    this.setState(prevState => ({
-      modal: !prevState.modal
-    }));
+    this.setState({
+      modalOpen: !this.state.modalOpen
+    });
   };
 
   componentDidMount() {
