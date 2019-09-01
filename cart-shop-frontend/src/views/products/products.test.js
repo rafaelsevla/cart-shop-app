@@ -269,3 +269,107 @@ test('should be return increase an item of cardItem', () => {
 
   expect(products(before, action)).toEqual(after);
 });
+
+test('should be returned with zeroed cart', () => {
+  const before = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 2,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  const action = {
+    type: types.REMOVE_PRODUCT_FROM_CART,
+    payload: 1
+  };
+
+  const after = {
+    cartItens: [],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  expect(products(before, action)).toEqual(after);
+});
+test('should be returned with zeroed cart', () => {
+  const before = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 2,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      },
+      {
+        id: 2,
+        amount: 1,
+        sku: 11854078013954528,
+        title: 'Camisa Feminina Puma Palmeiras I',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G'],
+        style: 'Branco com listras brancas',
+        price: 199.9,
+        installments: 7,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  const action = {
+    type: types.REMOVE_PRODUCT_FROM_CART,
+    payload: 1
+  };
+
+  const after = {
+    cartItens: [
+      {
+        id: 2,
+        amount: 1,
+        sku: 11854078013954528,
+        title: 'Camisa Feminina Puma Palmeiras I',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G'],
+        style: 'Branco com listras brancas',
+        price: 199.9,
+        installments: 7,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  expect(products(before, action)).toEqual(after);
+});
