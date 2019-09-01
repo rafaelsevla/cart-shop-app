@@ -11,10 +11,10 @@ import './style.scss';
 
 class Products extends Component {
   state = {
-    modalOpen: false
+    modalOpen: true
   };
 
-  toggle = () => {
+  toggleModal = () => {
     this.setState({
       modalOpen: !this.state.modalOpen
     });
@@ -29,12 +29,12 @@ class Products extends Component {
 
     return (
       <>
-        <Header onClick={this.toggle} />
+        <Header onClick={this.toggleModal} products={products} />
         <div className="product-list">
           <CartModal
             products={products}
             isOpen={this.state.modalOpen}
-            toggle={this.toggle}
+            toggle={this.toggleModal}
             addProductToCart={this.props.addProductToCart}
             removeProductToCart={this.props.removeProductToCart}
           />
