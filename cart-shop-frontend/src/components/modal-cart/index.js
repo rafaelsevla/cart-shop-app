@@ -15,7 +15,6 @@ import {
   ModalFooter,
   Row
 } from 'reactstrap';
-import { addProductToCart, removeProductToCart } from 'views/products/actions';
 
 const CartModal = ({
   products,
@@ -89,9 +88,4 @@ const CartModal = ({
   </Modal>
 );
 
-const mapDispatchToProps = { addProductToCart, removeProductToCart };
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(CartModal);
+export default CartModal;
