@@ -24,11 +24,12 @@ import shirt from 'assets/img/palmeiras.jpg';
 import './style.scss';
 
 const CartModal = ({
-  products,
-  isOpen,
-  toggle,
   addProductToCart,
-  removeProductToCart
+  decreaseProductFromCart,
+  isOpen,
+  products,
+  removeProductToCart,
+  toggle
 }) => (
   <Modal isOpen={isOpen} toggle={toggle}>
     <ModalHeader toggle={toggle}>Carrinho</ModalHeader>
@@ -90,20 +91,27 @@ const CartModal = ({
                   <Row>
                     <Col>
                       <Row>
-                        <h5 className="mr-1 amount-info-text">Quantidade:</h5>
-                        <Badge color="light" className="cursor-pointer mr-1">
+                        <h5 className="mr-2 ml-2 amount-info-text">
+                          Quantidade:
+                        </h5>
+                        <Button
+                          color="light"
+                          className="mr-1 decision-amount-items"
+                          disabled={product.amount === 1}
+                          onClick={() => decreaseProductFromCart(product.id)}
+                        >
                           <AntDesign
                             name="minuscircleo"
                             color="black"
                             size={20}
                           />
-                        </Badge>
+                        </Button>
                         <h5>
                           <span class="amount-container">{product.amount}</span>
                         </h5>
-                        <Badge
+                        <Button
                           color="light"
-                          className="cursor-pointer ml-1"
+                          className="ml-2 decision-amount-items"
                           onClick={() => addProductToCart(product.id)}
                         >
                           <AntDesign
@@ -111,10 +119,13 @@ const CartModal = ({
                             color="black"
                             size={20}
                           />
-                        </Badge>
+                        </Button>
                         <p className="ml-auto mr-5 font-weight-bold text-success border-bottom">
                           {product.currencyFormat}&nbsp;
-                          {product.price.toLocaleString('pt-BR')}0
+                          {(product.price * product.amount).toLocaleString(
+                            'pt-BR'
+                          )}
+                          0
                         </p>
                       </Row>
                     </Col>

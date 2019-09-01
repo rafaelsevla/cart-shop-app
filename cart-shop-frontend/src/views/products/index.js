@@ -4,6 +4,7 @@ import { CardProduct, CartModal, Header } from 'components';
 import { Col, Row } from 'reactstrap';
 import {
   addProductToCart,
+  decreaseProductFromCart,
   fetchProducts,
   removeProductToCart
 } from './actions';
@@ -36,6 +37,7 @@ class Products extends Component {
             isOpen={this.state.modalOpen}
             toggle={this.toggleModal}
             addProductToCart={this.props.addProductToCart}
+            decreaseProductFromCart={this.props.decreaseProductFromCart}
             removeProductToCart={this.props.removeProductToCart}
           />
           <Row>
@@ -60,6 +62,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addProductToCart,
+  decreaseProductFromCart,
   fetchProducts,
   removeProductToCart
 };

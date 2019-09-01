@@ -307,6 +307,7 @@ test('should be returned with zeroed cart', () => {
 
   expect(products(before, action)).toEqual(after);
 });
+
 test('should be returned with zeroed cart', () => {
   const before = {
     cartItens: [
@@ -361,6 +362,112 @@ test('should be returned with zeroed cart', () => {
         style: 'Branco com listras brancas',
         price: 199.9,
         installments: 7,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  expect(products(before, action)).toEqual(after);
+});
+
+test('should be returned with minus one item', () => {
+  const before = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 3,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  const action = {
+    type: types.DECREASE_PRODUCTS_TO_CART,
+    payload: 1
+  };
+
+  const after = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 2,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  expect(products(before, action)).toEqual(after);
+});
+
+test('should be returned with minus one item two', () => {
+  const before = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 2,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
+        currencyId: 'BRL',
+        currencyFormat: 'R$',
+        isFreeShipping: true
+      }
+    ],
+    itens: getPostMock.products,
+    isFetchingProducts: false,
+    showErrorMessage: false
+  };
+
+  const action = {
+    type: types.DECREASE_PRODUCTS_TO_CART,
+    payload: 1
+  };
+
+  const after = {
+    cartItens: [
+      {
+        id: 1,
+        amount: 1,
+        sku: 18644119330491312,
+        title: 'Camisa Puma Palmeiras II',
+        description: '14/15 s/nº',
+        availableSizes: ['S', 'G', 'GG', 'GGG'],
+        style: 'Preta com listras brancas',
+        price: 229.9,
+        installments: 9,
         currencyId: 'BRL',
         currencyFormat: 'R$',
         isFreeShipping: true

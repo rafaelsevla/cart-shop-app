@@ -16,6 +16,11 @@ export const addProductToCart = product_id => (dispatch, getState) => {
   }
 };
 
+export const decreaseProductFromCart = product_id => ({
+  type: types.DECREASE_PRODUCTS_TO_CART,
+  payload: product_id
+});
+
 const fetchProductsFail = () => ({
   type: types.FETCH_PRODUCTS_FAIL
 });

@@ -17,12 +17,23 @@ export default (state = initialState, action) => {
 
       return { ...state, cartItens: [...state.cartItens, newCartItem] };
 
-    case types.INCREASE_PRODUCTS_TO_CART:
-      let cartItens = [...state.cartItens];
-      let cartItem = cartItens.find(item => item.id === action.payload);
-      cartItem.amount++;
+    case types.DECREASE_PRODUCTS_TO_CART:
+      let cartItensToDecrease = [...state.cartItens];
+      let cartItemToDecrease = cartItensToDecrease.find(
+        item => item.id === action.payload
+      );
+      cartItemToDecrease.amount--;
 
-      return { ...state, cartItens };
+      return { ...state, cartItens: cartItensToDecrease };
+
+    case types.INCREASE_PRODUCTS_TO_CART:
+      let cartItensToIncrease = [...state.cartItens];
+      let cartItemToIncrease = cartItensToIncrease.find(
+        item => item.id === action.payload
+      );
+      cartItemToIncrease.amount++;
+
+      return { ...state, cartItens: cartItensToIncrease };
 
     case types.FETCH_PRODUCTS:
       return { ...state, itens: [], isFetchingProducts: true };
