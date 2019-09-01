@@ -1,50 +1,45 @@
 import React, { Component } from 'react';
-import { Col, Row, Label } from 'reactstrap';
+import { Col, Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import { AntDesign } from 'react-web-vector-icons';
 import { connect } from 'react-redux';
-import Select from 'react-select';
 
 import './style.scss';
 
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
-];
-
 class Header extends Component {
-  state = {
-    selectedOption: null
-  };
   handleChange = selectedOption => {
     this.setState({ selectedOption });
     console.log(`Option selected:`, selectedOption);
   };
 
   render() {
-    const { selectedOption } = this.state;
     const { products } = this.props;
 
     return (
-      <Col md={12} className="header-container">
-        <Row className="header-itens">
-          <Label>Netshoes</Label>
-
-          <Select
-            className="select ml-5 mr-5"
-            value={selectedOption}
-            onChange={this.handleChange}
-            options={options}
-            placeholder="Search"
-          />
-          <div onClick={this.props.onClick} class="cart-icon-container">
-            <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
-            <span class="badge badge-pill badge-danger badge-custom">
-              {products.cartItens.length}
-            </span>
-          </div>
-        </Row>
-      </Col>
+      <div>
+        <Navbar
+          color="light"
+          className="navbar-container pt-0 pb-0 justify-content-center"
+          light
+          expand="md"
+        >
+          <Col md={12} className="nav-items-container">
+            <NavbarBrand>Netshoes</NavbarBrand>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink
+                  onClick={this.props.onClick}
+                  className="cart-icon-container"
+                >
+                  <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
+                  <span class="badge badge-pill badge-danger badge-custom">
+                    {products.cartItens.length}
+                  </span>
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Col>
+        </Navbar>
+      </div>
     );
   }
 }

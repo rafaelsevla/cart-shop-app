@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { CardProduct, CartModal, Header } from 'components';
-
+import { Col, Row } from 'reactstrap';
 import {
   addProductToCart,
   fetchProducts,
@@ -38,14 +38,16 @@ class Products extends Component {
             addProductToCart={this.props.addProductToCart}
             removeProductToCart={this.props.removeProductToCart}
           />
-          {products.itens.map(product => (
-            <>
-              <CardProduct
-                product={product}
-                addProductToCart={this.props.addProductToCart}
-              />
-            </>
-          ))}
+          <Row>
+            {products.itens.map(product => (
+              <Col md={6}>
+                <CardProduct
+                  product={product}
+                  addProductToCart={this.props.addProductToCart}
+                />
+              </Col>
+            ))}
+          </Row>
         </div>
       </>
     );

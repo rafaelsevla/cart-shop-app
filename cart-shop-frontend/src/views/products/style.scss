@@ -1,11 +1,9 @@
 .product-list {
-  max-width: 700px;
+  max-width: 800px;
   margin: 20px auto 0;
   padding: 0 20px;
   p {
-    font-size: 16px;
-    color: #999;
-    margin-top: 5px;
+    font-size: 15px;
     line-height: 24px;
   }
   .button-put-cart {
@@ -13,7 +11,6 @@
     border-radius: 5px;
     border: 2px solid #8936bc;
     background: none;
-    margin-top: 10px;
     color: #8936bc;
     font-weight: bold;
     font-size: 16px;

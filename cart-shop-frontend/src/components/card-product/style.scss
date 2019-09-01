@@ -1,0 +1,32 @@
+.badge-size {
+  cursor: pointer;
+  padding: 0 7px;
+  height: 28px;
+  min-width: 28px;
+  text-align: center;
+  font-size: 0.6875rem;
+  line-height: 26px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #ccc;
+}
+
+.badge-size:hover {
+  border-color: #13abe1;
+  color: #13abe1;
+}
+
+.payment-type {
+  display: flex;
+  i {
+    margin-right: 1.5rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .size-item {
+    margin-top: 10px;
+  }
+}

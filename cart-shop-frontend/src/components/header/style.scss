@@ -1,11 +1,23 @@
 @import '~utils/constants';
 
-.header-container {
-  background: #8936bc;
-  height: $headerHeight;
-  .header-itens {
-    justify-content: center;
+.navbar-container {
+  background-color: #8936bc !important;
+  .nav-items-container {
     align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 790px;
+    .navbar-brand {
+      font-size: 2rem;
+      font-style: italic;
+      font-weight: bold;
+      color: #ecf3fd !important;
+    }
+    .navbar-toggler {
+      float: right;
+      background-color: #fff;
+      border: 1px solid #fff;
+    }
     .cart-icon-container {
       cursor: pointer;
       i {
@@ -15,15 +27,13 @@
         position: absolute;
       }
     }
-    label {
-      font-size: 2.5rem;
-      font-style: italic;
-      font-weight: bold;
-      color: #ecf3fd;
-    }
-
-    .select {
-      width: 20rem;
+  }
+  @media (max-width: 800px) {
+    .nav-items-container {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      max-width: 740px;
     }
   }
 }
