@@ -11,7 +11,7 @@ import './style.scss';
 
 class Products extends Component {
   state = {
-    modalOpen: true
+    modalOpen: false
   };
 
   toggle = () => {

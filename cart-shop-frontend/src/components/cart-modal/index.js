@@ -31,12 +31,12 @@ const CartModal = ({
             <>
               <Card key={product.id} className="mb-5">
                 <CardHeader>
-                  <strong>{product.title}</strong>
+                  <strong>
+                    {product.title} ({product.description})
+                  </strong>
                 </CardHeader>
                 <CardBody>
                   <CardTitle>
-                    {product.description}
-                    &nbsp; &nbsp;
                     {product.availableSizes.map(size => `${size} |`)}
                   </CardTitle>
                   <CardText>
