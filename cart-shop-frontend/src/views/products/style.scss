@@ -29,3 +29,13 @@
 .free-shipping {
   color: #008000;
 }
+
+@media (max-width: 800px) {
+  .justify-content-center-sm {
+    display: flex;
+    justify-content: center;
+  }
+  .mt-sm-5 {
+    margin-top: 20px;
+  }
+}

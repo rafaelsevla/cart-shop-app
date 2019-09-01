@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Badge,
   Button,
   Card,
   CardBody,
@@ -61,11 +60,15 @@ const CartModal = ({
                   <CardTitle></CardTitle>
                   <CardText>
                     <Row>
+                      <Col md={6} className="justify-content-center-sm">
+                        <img src={shirt} width="180px" />
+                      </Col>
                       <Col md={6}>
                         {product.style && (
                           <>
-                            <h4>Cor</h4>
-                            <p>{product.style}</p>
+                            <h4 className="mt-sm-5"> Cor</h4>
+
+                            <p className="">{product.style}</p>
                             <hr />
                           </>
                         )}
@@ -81,16 +84,13 @@ const CartModal = ({
                           </div>
                         )}
                       </Col>
-                      <Col md={6}>
-                        <img src={shirt} width="180px" />
-                      </Col>
                     </Row>
                   </CardText>
                 </CardBody>
                 <CardFooter className="pb-1">
                   <Row>
                     <Col>
-                      <Row>
+                      <Row className="align-items-center">
                         <h5 className="mr-2 ml-2 amount-info-text">
                           Quantidade:
                         </h5>
@@ -120,13 +120,15 @@ const CartModal = ({
                             size={20}
                           />
                         </Button>
-                        <p className="ml-auto mr-5 font-weight-bold text-success border-bottom">
-                          {product.currencyFormat}&nbsp;
-                          {(product.price * product.amount).toLocaleString(
-                            'pt-BR'
-                          )}
-                          0
-                        </p>
+                        <Col className="d-flex">
+                          <p className="ml-auto font-weight-bold text-success border-bottom">
+                            {product.currencyFormat}&nbsp;
+                            {(product.price * product.amount).toLocaleString(
+                              'pt-BR'
+                            )}
+                            0
+                          </p>
+                        </Col>
                       </Row>
                     </Col>
                   </Row>

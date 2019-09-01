@@ -32,3 +32,9 @@
 .card-light {
   background-color: #fff;
 }
+
+@media (max-width: 800px) {
+  .amount-info-text {
+    font-size: 1rem;
+  }
+}
