@@ -42,6 +42,12 @@ export default (state = initialState, action) => {
         isFetchingProducts: false
       };
 
+    case types.REMOVE_PRODUCT_FROM_CART:
+      return {
+        ...state,
+        cartItens: state.cartItens.filter(item => item.id !== action.payload)
+      };
+
     default:
       return state;
   }

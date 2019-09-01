@@ -3,6 +3,7 @@
 ## What's inside it?
 
 - Babel;
+- Jest;
 - Sass;
 - Redux!
 

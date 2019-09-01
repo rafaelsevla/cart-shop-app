@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from 'components/header';
+import CartModal from 'components/modal-cart';
 import {
   Badge,
   Button,
-  Row,
   Card,
-  CardHeader,
-  CardFooter,
   CardBody,
-  CardTitle,
+  CardFooter,
+  CardHeader,
   CardText,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter
+  CardTitle,
+  Row
 } from 'reactstrap';
-import { addProductToCart, fetchProducts } from './actions';
+import {
+  addProductToCart,
+  fetchProducts,
+  removeProductToCart
+} from './actions';
 import './style.scss';
 
 class Products extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: true
     };
 
     this.toggle = this.toggle.bind(this);
@@ -39,77 +40,6 @@ class Products extends Component {
     !localStorage.getItem('fetchProducts') && this.props.fetchProducts();
   }
 
-  modal = () => {
-    const { products } = this.props;
-
-    return (
-      <Modal
-        isOpen={this.state.modal}
-        toggle={this.toggle}
-        className={this.props.className}
-      >
-        <ModalHeader toggle={this.toggle}>Carrinho</ModalHeader>
-        <ModalBody>
-          {products.cartItens.length
-            ? products.cartItens.map(product => (
-                <>
-                  <Card key={product.id} className="mb-5">
-                    <CardHeader>
-                      <strong>{product.title}</strong>
-                    </CardHeader>
-                    <CardBody>
-                      <CardTitle>
-                        {product.description}
-                        &nbsp; &nbsp;
-                        {product.availableSizes.map(size => `${size} |`)}
-                      </CardTitle>
-                      <CardText>
-                        tamanho<p>{product.style}</p>
-                        preco <p>{product.price}</p>
-                        parcelas <p>{product.installments}</p>
-                        total <p>{product.amount}</p>
-                      </CardText>
-                    </CardBody>
-                    <CardFooter>
-                      <Row>
-                        {product.isFreeShipping && (
-                          <Badge
-                            style={{
-                              alignItems: 'center',
-                              display: 'flex',
-                              height: 30
-                            }}
-                            color="success"
-                            pill
-                          >
-                            Frete grátis
-                          </Badge>
-                        )}
-
-                        <Button
-                          className="button-put-cart"
-                          onClick={() =>
-                            this.props.addProductToCart(product.id)
-                          }
-                        >
-                          Colocar no carrinho
-                        </Button>
-                      </Row>
-                    </CardFooter>
-                  </Card>
-                </>
-              ))
-            : 'Seu carrinho está vazio'}
-        </ModalBody>
-        <ModalFooter>
-          <Button className="button-put-cart" onClick={this.toggle}>
-            Voltar para lista de produtos
-          </Button>
-        </ModalFooter>
-      </Modal>
-    );
-  };
-
   render() {
     const { products } = this.props;
 
@@ -117,7 +47,11 @@ class Products extends Component {
       <>
         <Header onClick={this.toggle} />
         <div className="product-list">
-          {this.modal()}
+          <CartModal
+            products={products}
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+          />
           {products.itens.map(product => (
             <>
               <Card key={product.id} className="mb-5">
@@ -175,7 +109,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   addProductToCart,
-  fetchProducts
+  fetchProducts,
+  removeProductToCart
 };
 
 export default connect(

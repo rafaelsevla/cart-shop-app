@@ -9,7 +9,6 @@ export const addProductToCart = product_id => (dispatch, getState) => {
       payload: product_id
     });
   } else {
-    console.log('dispatch');
     dispatch({
       type: types.ADD_PRODUCTS_TO_CART,
       payload: product_id
@@ -43,3 +42,8 @@ export const fetchProducts = () => dispatch => {
       dispatch(fetchProductsFail());
     });
 };
+
+export const removeProductToCart = product_id => ({
+  type: types.REMOVE_PRODUCT_FROM_CART,
+  payload: product_id
+});

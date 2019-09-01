@@ -37,7 +37,7 @@ class Header extends Component {
             options={options}
             placeholder="Search"
           />
-          <div onClick={this.props.onClick}>
+          <div onClick={this.props.onClick} class="cart-icon-container">
             <AntDesign name="shoppingcart" color="#ECF3FD" size={40} />
             <span class="badge badge-pill badge-danger badge-custom">
               {products.cartItens.length}
