@@ -20,6 +20,7 @@ import {
   EvilIcons,
   MaterialCommunityIcons
 } from 'react-web-vector-icons';
+import shirt from 'assets/img/palmeiras.jpg';
 import './style.scss';
 
 const CartModal = ({
@@ -48,7 +49,7 @@ const CartModal = ({
 
                     <Col
                       md={2}
-                      className="remove-item-container"
+                      className="cursor-pointer"
                       onClick={() => removeProductToCart(product.id)}
                     >
                       <EvilIcons name="trash" size={30} color="#000" />
@@ -62,11 +63,12 @@ const CartModal = ({
                       <Col md={6}>
                         {product.style && (
                           <>
-                            <h3>Cor</h3>
+                            <h4>Cor</h4>
                             <p>{product.style}</p>
+                            <hr />
                           </>
                         )}
-                        preco <p>{product.price}</p>
+
                         {product.isFreeShipping && (
                           <div className="d-flex align-items-center free-shipping">
                             <MaterialCommunityIcons
@@ -79,21 +81,42 @@ const CartModal = ({
                         )}
                       </Col>
                       <Col md={6}>
-                        <img
-                          src="https://www.verdebrancomania.com.br/imagens/produtos/08601878/Detalhes/camisa-i-palmeiras-2019-patrociniospatchbr.jpg"
-                          width="180px"
-                        />
+                        <img src={shirt} width="180px" />
                       </Col>
                     </Row>
                   </CardText>
                 </CardBody>
-                <CardFooter>
+                <CardFooter className="pb-1">
                   <Row>
-                    <Col onClick={() => addProductToCart(product.id)}>
-                      <h3>
-                        Quantidade: {product.amount}
-                        <AntDesign name="pluscircleo" color="black" size={40} />
-                      </h3>
+                    <Col>
+                      <Row>
+                        <h5 className="mr-1 amount-info-text">Quantidade:</h5>
+                        <Badge color="light" className="cursor-pointer mr-1">
+                          <AntDesign
+                            name="minuscircleo"
+                            color="black"
+                            size={20}
+                          />
+                        </Badge>
+                        <h5>
+                          <span class="amount-container">{product.amount}</span>
+                        </h5>
+                        <Badge
+                          color="light"
+                          className="cursor-pointer ml-1"
+                          onClick={() => addProductToCart(product.id)}
+                        >
+                          <AntDesign
+                            name="pluscircleo"
+                            color="black"
+                            size={20}
+                          />
+                        </Badge>
+                        <p className="ml-auto mr-5 font-weight-bold text-success border-bottom">
+                          {product.currencyFormat}&nbsp;
+                          {product.price.toLocaleString('pt-BR')}0
+                        </p>
+                      </Row>
                     </Col>
                   </Row>
                 </CardFooter>

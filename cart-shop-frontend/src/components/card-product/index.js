@@ -16,6 +16,7 @@ import {
   FontAwesome,
   MaterialCommunityIcons
 } from 'react-web-vector-icons';
+import shirt from 'assets/img/palmeiras.jpg';
 import './style.scss';
 
 const CardProduct = ({ product, addProductToCart }) => (
@@ -34,18 +35,9 @@ const CardProduct = ({ product, addProductToCart }) => (
     </CardHeader>
     <CardBody>
       <CardText className="mt-0">
-        <Row className="">
+        <Row>
           <Col md={6}>
-            <p className="font-weight-bold">
-              {product.currencyFormat}&nbsp;
-              {product.price}&nbsp;
-              {product.installments > 0 && `em até ${product.installments}x`}
-            </p>
-            <div className="payment-type">
-              <AntDesign name="creditcard" color="black" size={30} />
-              <FontAwesome name="money" color="green" size={30} />
-              <Entypo name="paypal" color="#242748" size={30} />
-            </div>
+            <img src={shirt} width="140px" />
           </Col>
           <Col md={6}>
             <Row className="ml-0 ">
@@ -56,6 +48,16 @@ const CardProduct = ({ product, addProductToCart }) => (
                 {size}
               </Badge>
             ))}
+            <p className="font-weight-bold mt-3">
+              {product.currencyFormat}&nbsp;
+              {product.price.toLocaleString('pt-BR')}0&nbsp;
+              {product.installments > 0 && `em até ${product.installments}x`}
+            </p>
+            <div className="payment-type">
+              <AntDesign name="creditcard" color="black" size={30} />
+              <FontAwesome name="money" color="green" size={30} />
+              <Entypo name="paypal" color="#242748" size={30} />
+            </div>
           </Col>
         </Row>
       </CardText>
