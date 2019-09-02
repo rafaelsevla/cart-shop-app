@@ -25,7 +25,10 @@ const Body = ({ product }) => (
           </div>
           <p className="font-weight-bold mt-3 justify-content-center-sm">
             {product.currencyFormat}&nbsp;
-            {product.price.toFixed(2).toLocaleString('pt-BR')}&nbsp;
+            {product.price.toLocaleString('pt-BR', {
+              minimumFractionDigits: 2
+            })}
+            &nbsp;
             {product.installments > 0 && `em até ${product.installments}x`}
           </p>
           <div>

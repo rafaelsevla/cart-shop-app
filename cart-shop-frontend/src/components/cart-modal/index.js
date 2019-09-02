@@ -24,7 +24,7 @@ const CartModal = ({
   totalValue
 }) => (
   <Modal isOpen={isOpen} toggle={toggle}>
-    <ModalHeader toggle={toggle}>Carrinho</ModalHeader>
+    <ModalHeader toggle={toggle}>Meu Carrinho</ModalHeader>
     <ModalBody>
       {products.cartItens.length ? (
         products.cartItens.map(product => (
@@ -46,19 +46,17 @@ const CartModal = ({
       ) : (
         <EmptyCart />
       )}
-      <Row className="ml-0 mr-0">
-        <p className="mr-auto ml-2 font-weight-bold text-success border-bottom">
-          {totalValue !== 0 &&
-            `R$ 
-            ${totalValue.toFixed(2).toLocaleString('pt-BR')}`}
-        </p>
-        <Button
-          className="action-button float-right"
-          color="#8936bc"
-          onClick={() => (window.location = 'https://netshoes.com.br')}
-        >
-          Concluir compra
-        </Button>
+      <Row className="ml-0 mr-0 mt-3">
+        {totalValue !== 0 && (
+          <Button
+            className="ml-auto action-button float-right"
+            color="#8936bc"
+            onClick={() => (window.location = 'https://netshoes.com.br')}
+          >
+            Finalizar compra de R${' '}
+            {totalValue.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+          </Button>
+        )}
       </Row>
     </ModalBody>
     <ModalFooter>

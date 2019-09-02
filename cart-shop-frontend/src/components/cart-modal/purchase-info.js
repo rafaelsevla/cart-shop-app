@@ -14,7 +14,7 @@ const PurcharseInfo = ({
           <h5 className="mr-2 ml-2 amount-info-text">Quantidade:</h5>
           <Button
             color="light"
-            className="mr-1 decision-amount-items"
+            className="mr-2 decision-amount-items"
             disabled={product.amount === 1}
             onClick={() => decreaseProductFromCart(product.id)}
           >
@@ -33,9 +33,9 @@ const PurcharseInfo = ({
           <Col className="d-flex">
             <p className="ml-auto font-weight-bold text-success border-bottom">
               {product.currencyFormat}&nbsp;
-              {(product.price * product.amount)
-                .toFixed(2)
-                .toLocaleString('pt-BR')}
+              {(product.price * product.amount).toLocaleString('pt-BR', {
+                minimumFractionDigits: 2
+              })}
             </p>
           </Col>
         </Row>
