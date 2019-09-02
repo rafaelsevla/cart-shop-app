@@ -8,7 +8,7 @@ const ProductInfo = ({ product }) => (
     <CardText>
       <Row>
         <Col md={6} className="justify-content-center-sm">
-          <img src={shirt} width="180px" />
+          <img src={shirt} width="180px" alt="shop product" />
         </Col>
         <Col md={6}>
           {product.style && (

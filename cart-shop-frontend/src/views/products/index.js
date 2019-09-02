@@ -30,9 +30,9 @@ class Products extends Component {
     let totalValue = 0;
 
     products.cartItens.length &&
-      products.cartItens.map(item => {
-        totalValue = totalValue + item.price * item.amount;
-      });
+      products.cartItens.map(
+        item => (totalValue = totalValue + item.price * item.amount)
+      );
 
     return (
       <>
