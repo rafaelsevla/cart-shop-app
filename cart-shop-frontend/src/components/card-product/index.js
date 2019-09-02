@@ -78,6 +78,7 @@ const CardProduct = ({ product, addProductToCart }) => (
         )}
         <Button
           className="button-put-cart"
+          color="#8936bc"
           onClick={() => addProductToCart(product.id)}
         >
           Colocar no carrinho
