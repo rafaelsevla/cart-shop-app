@@ -16,8 +16,8 @@ const Footer = ({ product, addProductToCart }) => (
         className="button-put-cart"
         color="#8936bc"
         onClick={() => [
-          toast.success('O produto foi adicionado ao carrinho!'),
-          addProductToCart(product.id)
+          addProductToCart(product.id),
+          toast.success('O produto foi adicionado ao carrinho!')
         ]}
       >
         Colocar no carrinho
