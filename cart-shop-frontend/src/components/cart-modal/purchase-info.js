@@ -3,9 +3,9 @@ import { Button, CardFooter, Col, Row } from 'reactstrap';
 import { AntDesign } from 'react-web-vector-icons';
 
 const PurcharseInfo = ({
+  product,
   addProductToCart,
-  decreaseProductFromCart,
-  product
+  decreaseProductFromCart
 }) => (
   <CardFooter className="pb-1">
     <Row>
