@@ -33,7 +33,9 @@ const PurcharseInfo = ({
           <Col className="d-flex">
             <p className="ml-auto font-weight-bold text-success border-bottom">
               {product.currencyFormat}&nbsp;
-              {(product.price * product.amount).toLocaleString('pt-BR')}0
+              {(product.price * product.amount)
+                .toFixed(2)
+                .toLocaleString('pt-BR')}
             </p>
           </Col>
         </Row>

@@ -1,29 +1,32 @@
-.badge-size {
-  cursor: pointer;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  height: 28px;
-  line-height: 26px;
-  margin-top: 7px;
-  min-width: 28px;
-  padding: 0 7px;
-  text-align: center;
-  text-decoration: none;
-  -webkit-border-radius: 20px;
-}
+.card-container {
+  min-height: 400px;
 
-.badge-size:hover {
-  border-color: #13abe1;
-  color: #13abe1;
-}
+  .badge-size {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    height: 28px;
+    line-height: 26px;
+    margin-top: 7px;
+    min-width: 28px;
+    padding: 0 7px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 20px;
+  }
 
-.payment-type {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  i {
-    margin: 10px auto;
+  .badge-size:hover {
+    border-color: #13abe1;
+    color: #13abe1;
+  }
+  .payment-type {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    i {
+      margin: 10px auto;
+    }
   }
 }

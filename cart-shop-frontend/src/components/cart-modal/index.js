@@ -50,7 +50,7 @@ const CartModal = ({
         <p className="mr-auto ml-2 font-weight-bold text-success border-bottom">
           {totalValue !== 0 &&
             `R$ 
-            ${totalValue.toLocaleString('pt-BR')}0`}
+            ${totalValue.toFixed(2).toLocaleString('pt-BR')}`}
         </p>
         <Button
           className="action-button float-right"
