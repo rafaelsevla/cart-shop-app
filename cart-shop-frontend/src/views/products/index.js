@@ -8,6 +8,8 @@ import {
   fetchProducts,
   removeProductToCart
 } from './actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './style.scss';
 
 class Products extends Component {
@@ -36,6 +38,7 @@ class Products extends Component {
 
     return (
       <>
+        <ToastContainer />
         <Header onClick={this.toggleModal} products={products} />
         <div className="product-list">
           <CartModal

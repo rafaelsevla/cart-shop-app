@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, CardFooter, Row } from 'reactstrap';
+import { toast } from 'react-toastify';
 import { MaterialCommunityIcons } from 'react-web-vector-icons';
 
 const Footer = ({ product, addProductToCart }) => (
@@ -14,7 +15,10 @@ const Footer = ({ product, addProductToCart }) => (
       <Button
         className="button-put-cart"
         color="#8936bc"
-        onClick={() => addProductToCart(product.id)}
+        onClick={() => [
+          toast.success('O produto foi adicionado ao carrinho!'),
+          addProductToCart(product.id)
+        ]}
       >
         Colocar no carrinho
       </Button>

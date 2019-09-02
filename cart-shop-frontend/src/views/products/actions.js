@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { ActionTypes as types } from './constants';
 import CONSTANTS from 'utils/endpoints';
-import axios from 'axios';
 
 export const addProductToCart = product_id => (dispatch, getState) => {
   if (getState().products.cartItens.find(item => item.id === product_id)) {
