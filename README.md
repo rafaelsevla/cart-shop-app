@@ -9,13 +9,10 @@
 ## Up and running
 
 - Clone this repository: `git clone git@github.com:rafaelsevla/cart-shop-app.git`;
-
 - Open a terminal tab
 - Enter cart-shop-backend directory `cd cart-shop-backend`
 - Install dependencies: `yarn` (or `npm install`);
 - Run `yarn start` (or `npm start`) to develop on `http://localhost:3001`
-
-- Open another terminal tab
 - Enter cart-shop-frontend directory `cd cart-shop-frontend`
 - Install dependencies: `yarn` (or `npm install`);
 - Run `yarn start` (or `npm start`) to develop on `http://localhost:3000`
