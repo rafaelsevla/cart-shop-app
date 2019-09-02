@@ -1,5 +1,5 @@
 const CONSTANTS = {
-  API: 'https://b9e1d4ba.ngrok.io/api/',
+  API: 'http://localhost:3001/api/',
   PRODUCTS: 'products/'
 };
 

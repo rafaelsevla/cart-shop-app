@@ -22,6 +22,27 @@
   border: 1px solid #999;
 }
 
+.action-button {
+  height: 42px;
+  border-radius: 5px;
+  border: 2px solid #8936bc;
+  background: none;
+  color: #8936bc;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background: #8936bc;
+  border: 2px solid #8936bc;
+  color: #fff;
+}
+
 .decision-amount-items {
   padding: 0;
   height: min-content;

@@ -12,7 +12,7 @@ import './style.scss';
 
 class Products extends Component {
   state = {
-    modalOpen: true
+    modalOpen: false
   };
 
   toggleModal = () => {
@@ -27,6 +27,12 @@ class Products extends Component {
 
   render() {
     const { products } = this.props;
+    let totalValue = 0;
+
+    products.cartItens.length &&
+      products.cartItens.map(item => {
+        totalValue = totalValue + item.price * item.amount;
+      });
 
     return (
       <>
@@ -39,6 +45,7 @@ class Products extends Component {
             addProductToCart={this.props.addProductToCart}
             decreaseProductFromCart={this.props.decreaseProductFromCart}
             removeProductToCart={this.props.removeProductToCart}
+            totalValue={totalValue}
           />
           <Row>
             {products.itens.map(product => (
