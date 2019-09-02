@@ -20,7 +20,7 @@
 - Install dependencies: `yarn` (or `npm install`);
 - Run `yarn start` (or `npm start`) to develop on `http://localhost:3000`
 
-## Scripts
+## Scripts on frontend
 
 - `yarn start (or npm start)`: Starts the application
 - `yarn test (or npm test)`: Run tests once
